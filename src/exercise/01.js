@@ -4,7 +4,7 @@
 import * as React from 'react'
 
 function Greeting() {
-  // 💣 delete this variable declaration and replace it with a React.useState call
+  // 💣 deelete this variable declaration and replace it with a React.useState call
   const name = ''
 
   function handleChange(event) {
