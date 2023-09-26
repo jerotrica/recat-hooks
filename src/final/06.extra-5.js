@@ -11,12 +11,12 @@ import {
 } from '../pokemon'
 
 class ErrorBoundary extends React.Component {
-  state = {error: null}
+  state = { error: null }
   static getDerivedStateFromError(error) {
-    return {error}
+    return { error }
   }
   render() {
-    const {error} = this.state
+    const { error } = this.state
     if (error) {
       return <this.props.FallbackComponent error={error} />
     }
@@ -25,25 +25,25 @@ class ErrorBoundary extends React.Component {
   }
 }
 
-function PokemonInfo({pokemonName}) {
+function PokemonInfo({ pokemonName }) {
   const [state, setState] = React.useState({
     status: 'idle',
     pokemon: null,
     error: null,
   })
-  const {status, pokemon, error} = state
+  const { status, pokemon, error } = state
 
   React.useEffect(() => {
     if (!pokemonName) {
       return
     }
-    setState({status: 'pending'})
+    setState({ status: 'pending' })
     fetchPokemon(pokemonName).then(
       pokemon => {
-        setState({status: 'resolved', pokemon})
+        setState({ status: 'resolved', pokemon })
       },
       error => {
-        setState({status: 'rejected', error})
+        setState({ status: 'rejected', error })
       },
     )
   }, [pokemonName])
@@ -62,11 +62,11 @@ function PokemonInfo({pokemonName}) {
   throw new Error('This should be impossible')
 }
 
-function ErrorFallback({error}) {
+function ErrorFallback({ error }) {
   return (
     <div role="alert">
       There was an error:{' '}
-      <pre style={{whiteSpace: 'normal'}}>{error.message}</pre>
+      <pre style={{ whiteSpace: 'normal' }}>{error.message}</pre>
     </div>
   )
 }

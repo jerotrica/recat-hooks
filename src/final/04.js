@@ -33,6 +33,7 @@ function Board() {
 
   return (
     <div>
+      <h3>Exercise 4 Final</h3>
       <div className="status">{status}</div>
       <div className="board-row">
         {renderSquare(0)}
@@ -70,8 +71,8 @@ function calculateStatus(winner, squares, nextValue) {
   return winner
     ? `Winner: ${winner}`
     : squares.every(Boolean)
-    ? `Scratch: Cat's game`
-    : `Next player: ${nextValue}`
+      ? `Scratch: Cat's game`
+      : `Next player: ${nextValue}`
 }
 
 function calculateNextValue(squares) {

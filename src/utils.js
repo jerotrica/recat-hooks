@@ -12,7 +12,7 @@ function useLocalStorageState(
   defaultValue = '',
   // the = {} fixes the error we would get from destructuring when no argument was passed
   // Check https://jacobparis.com/blog/destructure-arguments for a detailed explanation
-  {serialize = JSON.stringify, deserialize = JSON.parse} = {},
+  { serialize = JSON.stringify, deserialize = JSON.parse } = {},
 ) {
   const [state, setState] = React.useState(() => {
     const valueInLocalStorage = window.localStorage.getItem(key)
@@ -43,4 +43,4 @@ function useLocalStorageState(
   return [state, setState]
 }
 
-export {useLocalStorageState}
+export { useLocalStorageState }

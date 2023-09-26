@@ -4,11 +4,11 @@
 import * as React from 'react'
 import VanillaTilt from 'vanilla-tilt'
 
-function Tilt({children}) {
+function Tilt({ children }) {
   const tiltRef = React.useRef()
 
   React.useEffect(() => {
-    const {current: tiltNode} = tiltRef
+    const { current: tiltNode } = tiltRef
     const vanillaTiltOptions = {
       max: 25,
       speed: 400,
@@ -28,10 +28,12 @@ function Tilt({children}) {
 
 function App() {
   return (
-    <Tilt>
-      <div className="totally-centered">vanilla-tilt.js</div>
-    </Tilt>
+    <>
+      <h3>Final</h3>
+      <Tilt>
+        <div className="totally-centered">vanilla-tilt.js</div>
+      </Tilt>
+    </>
   )
 }
-
 export default App

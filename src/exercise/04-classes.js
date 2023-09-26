@@ -17,14 +17,14 @@ class Board extends React.Component {
   }
 
   selectSquare(square) {
-    const {squares} = this.state
+    const { squares } = this.state
     const nextValue = calculateNextValue(squares)
     if (calculateWinner(squares) || squares[square]) {
       return
     }
     const squaresCopy = [...squares]
     squaresCopy[square] = nextValue
-    this.setState({squares: squaresCopy})
+    this.setState({ squares: squaresCopy })
   }
   renderSquare = i => (
     <button className="square" onClick={() => this.selectSquare(i)}>
@@ -33,7 +33,7 @@ class Board extends React.Component {
   )
 
   restart = () => {
-    this.setState({squares: Array(9).fill(null)})
+    this.setState({ squares: Array(9).fill(null) })
     this.updateLocalStorage()
   }
 
@@ -52,13 +52,14 @@ class Board extends React.Component {
   }
 
   render() {
-    const {squares} = this.state
+    const { squares } = this.state
     const nextValue = calculateNextValue(squares)
     const winner = calculateWinner(squares)
     let status = calculateStatus(winner, squares, nextValue)
 
     return (
       <div>
+        <h3>04 - Classes</h3>
         <div className="status">{status}</div>
         <div className="board-row">
           {this.renderSquare(0)}
@@ -97,8 +98,8 @@ function calculateStatus(winner, squares, nextValue) {
   return winner
     ? `Winner: ${winner}`
     : squares.every(Boolean)
-    ? `Scratch: Cat's game`
-    : `Next player: ${nextValue}`
+      ? `Scratch: Cat's game`
+      : `Next player: ${nextValue}`
 }
 
 function calculateNextValue(squares) {

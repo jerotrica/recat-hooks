@@ -9,7 +9,7 @@ function useLocalStorageState(
   defaultValue = '',
   // the = {} fixes the error we would get from destructuring when no argument was passed
   // Check https://jacobparis.com/blog/destructure-arguments for a detailed explanation
-  {serialize = JSON.stringify, deserialize = JSON.parse} = {},
+  { serialize = JSON.stringify, deserialize = JSON.parse } = {},
 ) {
   const [state, setState] = React.useState(() => {
     const valueInLocalStorage = window.localStorage.getItem(key)
@@ -40,7 +40,7 @@ function useLocalStorageState(
   return [state, setState]
 }
 
-function Greeting({initialName = ''}) {
+function Greeting({ initialName = '' }) {
   const [name, setName] = useLocalStorageState('name', initialName)
 
   function handleChange(event) {
@@ -50,10 +50,11 @@ function Greeting({initialName = ''}) {
   return (
     <div>
       <form>
+        <h1>Exercise 2 Extra 4 final</h1>
         <label htmlFor="name">Name: </label>
         <input value={name} onChange={handleChange} id="name" />
       </form>
-      {name ? <strong>Hello {name}</strong> : 'Please type your name'}
+      {name ? <strong>Hello {name}</strong> : 'Please tyype your name'}
     </div>
   )
 }
